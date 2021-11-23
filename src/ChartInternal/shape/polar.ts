@@ -3,6 +3,7 @@ import CLASS from "../../config/classes";
 import {getRange} from "../../module/util";
 
 export default {
+	// TODO: show raw data on the area
 	initPolar(): void {
 		const $$ = this;
 		const {config, state: {current}, $el} = $$;
