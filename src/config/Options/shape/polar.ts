@@ -14,6 +14,7 @@ export default {
 	 * @memberof Options
 	 * @type {object}
 	 * @property {object} polar Polar object
+	 * @property {boolean} [polar.label.show=true] Show or hide label on each pie piece.
 	 * @property {number} [polar.level.depth=3] Set the level depth.
 	 * @see [Demo](https://naver.github.io/billboard.js/demo/#Chart.PolarChart)
 	 * @example
@@ -23,5 +24,6 @@ export default {
 	 * 		}
 	 *  }
 	 */
+	polar_label_show: true,
 	polar_level_depth: 3,
 };

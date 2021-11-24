@@ -578,7 +578,6 @@ var demos = {
 						["data3", 75]
 					],
 					type: "polar",
-					labels: true
 				},
 				polar: {
 					level:{

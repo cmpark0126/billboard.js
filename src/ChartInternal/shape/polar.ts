@@ -1,5 +1,8 @@
+import {select as d3Select} from "d3-selection";
 import {arc as d3Arc, pie as d3Pie} from "d3-shape";
 import CLASS from "../../config/classes";
+import {setTextValue} from "../../module/util";
+import {d3Selection} from "../../../types/types";
 import {getRange} from "../../module/util";
 
 export default {
@@ -67,6 +70,15 @@ export default {
 		mainPieEnter.append("g")
 			.attr("class", classArcs)
 			.merge(mainPieUpdate);
+
+		// TODO: change option appropriately
+		mainPieEnter.append("text")
+			.attr("dy", ".35em")
+			.style("text-anchor", "middle")
+			.style("pointer-events", "none");
+		
+		// TODO: is it necessary?
+		$el.text = chartArcs.selectAll(`.${CLASS.target} text`);
 	},
 
 	redrawPolar(): void {
@@ -93,8 +105,9 @@ export default {
 			.each(function(d) { this._current = d; })
 			.merge(mainArc)
 			.attr("d", d => $$.getPolarArc(d));
-	},
 
+		$$.redrawPolarText();
+	},
 
 	updatePolarLevel(): void {
 		const $$ = this;
@@ -115,14 +128,16 @@ export default {
 		level.exit().remove();
 
 		const levelEnter = level.enter().append("g")
-			.attr("class", (d, i) => `${CLASS.level} ${CLASS.level}-${i}`);
+			.attr("class", i => `${CLASS.level} ${CLASS.level}-${i}`);
 
+		// TODO: apply `polar_level_show` option
 		// cx, cy, translate: Set center as origin (0,0) so that it can share same center with arcs
 		levelEnter.append("circle")
 			.attr("cx", 0)
 			.attr("cy", 0)
 			.attr("r", d => levelRatio[d]);
 
+		// TODO: apply `polar_level_text_show` option
 		levelEnter.append("text")
 			.style("text-anchor", "middle")
 			.attr("dy", "0.5rem")
@@ -131,4 +146,39 @@ export default {
 
 		levelEnter.merge(level);
 	},
+
+	// TODO: consider how to reuse the code in `src/ChartInternal/shape/arc.ts`
+	shouldShowPolarLabel(): boolean {
+		const $$ = this;
+		const {config} = $$;
+
+		return config[`polar_label_show`];
+	},
+
+	textForPolarLabel(selection: d3Selection): void {
+		const $$ = this;
+
+		if ($$.shouldShowPolarLabel()) {
+			selection
+				.style("fill", $$.updateTextColor.bind($$))
+				.attr("filter", $$.updateTextBacgroundColor.bind($$))
+				.each(function(d) {
+					const node = d3Select(this);
+					setTextValue(node, "text");
+				});
+		}
+	},
+
+	// TODO: show appropritate label in the future
+	redrawPolarText(): void {
+		const $$ = this;
+		const {$el} = $$;
+		const chartArcs = $el.polar.arcs;
+
+		chartArcs.selectAll(`.${CLASS.chartArc}`)
+			.select("text")
+			.text("text");
+			// .call($$.textForArcLabel.bind($$));
+			// .attr("transform", $$.transformForArcLabel.bind($$))
+	}
 };
