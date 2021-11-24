@@ -1,9 +1,8 @@
 import {select as d3Select} from "d3-selection";
 import {arc as d3Arc, pie as d3Pie} from "d3-shape";
 import CLASS from "../../config/classes";
-import {setTextValue} from "../../module/util";
 import {d3Selection} from "../../../types/types";
-import {getRange} from "../../module/util";
+import {getRange, setTextValue} from "../../module/util";
 
 export default {
 	// TODO: show raw data on the area
@@ -76,7 +75,7 @@ export default {
 			.attr("dy", ".35em")
 			.style("text-anchor", "middle")
 			.style("pointer-events", "none");
-		
+
 		// TODO: is it necessary?
 		$el.text = chartArcs.selectAll(`.${CLASS.target} text`);
 	},
@@ -147,23 +146,17 @@ export default {
 		levelEnter.merge(level);
 	},
 
-	// TODO: consider how to reuse the code in `src/ChartInternal/shape/arc.ts`
-	shouldShowPolarLabel(): boolean {
+	textForPolarLabel(selection: d3Selection): void {
 		const $$ = this;
 		const {config} = $$;
 
-		return config[`polar_label_show`];
-	},
-
-	textForPolarLabel(selection: d3Selection): void {
-		const $$ = this;
-
-		if ($$.shouldShowPolarLabel()) {
+		if (config.polar_label_show) {
 			selection
 				.style("fill", $$.updateTextColor.bind($$))
 				.attr("filter", $$.updateTextBacgroundColor.bind($$))
-				.each(function(d) {
+				.each(function(/* d */) {
 					const node = d3Select(this);
+
 					setTextValue(node, "text");
 				});
 		}
@@ -178,7 +171,7 @@ export default {
 		chartArcs.selectAll(`.${CLASS.chartArc}`)
 			.select("text")
 			.text("text");
-			// .call($$.textForArcLabel.bind($$));
-			// .attr("transform", $$.transformForArcLabel.bind($$))
+		// .call($$.textForArcLabel.bind($$));
+		// .attr("transform", $$.transformForArcLabel.bind($$))
 	}
 };
