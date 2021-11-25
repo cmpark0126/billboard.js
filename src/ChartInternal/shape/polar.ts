@@ -20,7 +20,8 @@ export default {
 			.attr("class", CLASS.chartPolarArcs);
 
 		// Let every data is less or equal to dataMax and each level has integer value
-		current.dataMax = Math.ceil($$.getMinMaxData().max[0].value / depth) * depth;
+		current.dataMax = config.polar_size_max ||Math.ceil($$.getMinMaxData().max[0].value / depth) * depth;
+		
 
 		// Let each value be 1, thus every arc has same central angle
 		// To match central angle with specific data, change "1" to specific function.
