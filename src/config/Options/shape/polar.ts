@@ -8,8 +8,6 @@
 export default {
 	/**
 	 * Set polar options
-	 * - **NOTE:**
-	 *  > When x tick text contains `\n`, it's used as line break.
 	 * @name polar
 	 * @memberof Options
 	 * @type {object}
@@ -24,8 +22,8 @@ export default {
 	 * @see [Demo: polar size](https://naver.github.io/billboard.js/demo/#PolarChartOptions.PolarSize)
 	 * @example
 	 *  polar: {
-	 * 		level: {
-	 * 			depth: 3,
+	 *      level: {
+	 *          depth: 3,
 	 *          show: true,
 	 *          text: {
 	 *              format: function(x) {
@@ -33,10 +31,10 @@ export default {
 	 *              },
 	 *              show: true
 	 *          }
-	 * 		},
-	 * 		size: {
-	 * 			max: 200
-	 * 		}
+	 *      },
+	 *      size: {
+	 *          max: 200
+	 *      }
 	 *  }
 	 */
 	polar_level_depth: 3,
