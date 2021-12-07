@@ -17,6 +17,7 @@ export default {
 	 * @property {Function} [polar.level.text.format] Set format function for the level value.<br>- Default value: `(x) => x % 1 === 0 ? x : x.toFixed(2)`
 	 * @property {boolean} [polar.level.text.show=true] Show or hide level text.
 	 * @property {number} [polar.size.max=undefined] Set the chart size. Same as setting the max value of the polar chart. If not given, it'll take the max value from the given data.
+	 * @property {number} [polar.padding=0] Sets the gap between polar arcs.
 	 * @property {number} [polar.startingAngle=0] Set starting angle where data draws.
 	 * @see [Demo](https://naver.github.io/billboard.js/demo/#Chart.PolarChart)
 	 * @see [Demo: polar level](https://naver.github.io/billboard.js/demo/#PolarChartOptions.PolarLevel)
@@ -36,6 +37,7 @@ export default {
 	 *      size: {
 	 *          max: 200
 	 *      },
+	 *      padding: 0,
 	 *      startingAngle: 1
 	 *  }
 	 */
