@@ -4860,6 +4860,21 @@ d3.select(".chart_area")
 				}
 			}
 		},
+		PadAngle: {
+			options: {
+				data: {
+					columns: [
+						["data1", 60],
+						["data2", 120],
+						["data3", 75]
+					],
+					type: "polar",
+				},
+				polar: {
+					padAngle: 0.1
+				}
+			}
+		},
 		StartingAngle: {
 			options: {
 				data: {
