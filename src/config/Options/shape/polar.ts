@@ -20,6 +20,8 @@ export default {
 	 * @property {boolean} [polar.level.text.show=true] Show or hide level text.
 	 * @property {number} [polar.size.max=undefined] Set the chart size. Same as setting the max value of the polar chart. If not given, it'll take the max value from the given data.
 	 * @see [Demo](https://naver.github.io/billboard.js/demo/#Chart.PolarChart)
+	 * @see [Demo: polar level](https://naver.github.io/billboard.js/demo/#PolarChartOptions.PolarLevel)
+	 * @see [Demo: polar size](https://naver.github.io/billboard.js/demo/#PolarChartOptions.PolarSize)
 	 * @example
 	 *  polar: {
 	 * 		level: {
