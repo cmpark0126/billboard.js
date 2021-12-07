@@ -4828,6 +4828,23 @@ d3.select(".chart_area")
 				}
 			}
 		},
+		PolarSize: {
+			options: {
+				data: {
+					columns: [
+						["data1", 30],
+						["data2", 120],
+						["data3", 75]
+					],
+					type: "polar",
+				},
+				polar: {
+					size: {
+						max: 150
+					}
+				}
+			}
+		}
 	},
 	API: {
 		AxisLabel: {
