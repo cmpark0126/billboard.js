@@ -46,6 +46,7 @@ export default {
 	polar_level_text_format: (x: number) => (x % 1 === 0 ? x : x.toFixed(2)),
 	polar_level_text_show: true,
 	polar_size_max: <number|undefined> undefined,
+	polar_padAngle: 0,
 	polar_padding: 0,
 	polar_startingAngle: 0
 };

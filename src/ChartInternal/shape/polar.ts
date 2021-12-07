@@ -9,7 +9,10 @@ export default {
 		const {config, state: {current}, $el} = $$;
 		const startingAngle = config.polar_startingAngle || 0;
 		// TODO: remove magic number
-		const padding = config.polar_padding * 0.01;
+		const padding = config.polar_padding;
+		const padAngle = (
+			padding ? padding * 0.01 : config.polar_padAngle
+		) || 0;
 		const depth = config.polar_level_depth;
 		const ceilDataMax = Math.ceil($$.getMinMaxData().max[0].value / depth) * depth;
 
@@ -31,7 +34,7 @@ export default {
 		$$.polarPie = d3Pie()
 			.startAngle(startingAngle)
 			.endAngle(startingAngle + (2 * Math.PI))
-			.padAngle(padding)
+			.padAngle(padAngle)
 			.value(1);
 	},
 
