@@ -8,6 +8,8 @@ export default {
 		const $$ = this;
 		const {config, state: {current}, $el} = $$;
 		const startingAngle = config.polar_startingAngle || 0;
+		// TODO: remove magic number
+		const padding = config.polar_padding * 0.01;
 		const depth = config.polar_level_depth;
 		const ceilDataMax = Math.ceil($$.getMinMaxData().max[0].value / depth) * depth;
 
@@ -29,6 +31,7 @@ export default {
 		$$.polarPie = d3Pie()
 			.startAngle(startingAngle)
 			.endAngle(startingAngle + (2 * Math.PI))
+			.padAngle(padding)
 			.value(1);
 	},
 
@@ -42,12 +45,15 @@ export default {
 
 	getPolarArc(d): string {
 		const $$ = this;
-		const {state: {current}} = $$;
+		const {config, state: {current}} = $$;
 		const [width, height] = $$.getPolarSize();
 		const radius = Math.min(width, height);
 
+		// TODO: remove magic number
+		const innerRadius = config.polar_padding * 0.35;
+
 		return d3Arc()
-			.innerRadius(0)
+			.innerRadius(innerRadius)
 			.outerRadius((d: any) => d.data.values.reduce((a, b) => a + b.value, 0) / current.dataMax * radius)(d) || "M 0 0";
 	},
 
