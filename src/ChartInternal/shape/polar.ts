@@ -50,7 +50,7 @@ export default {
 		const radius = Math.min(width, height);
 
 		// TODO: remove magic number
-		const innerRadius = config.polar_padding * 0.35;
+		const innerRadius = config.polar_padding * 0.4;
 
 		return d3Arc()
 			.innerRadius(innerRadius)
