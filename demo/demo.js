@@ -4844,7 +4844,22 @@ d3.select(".chart_area")
 					}
 				}
 			}
-		}
+		},
+		StartingAngle: {
+			options: {
+				data: {
+					columns: [
+						["data1", 30],
+						["data2", 120],
+						["data3", 75]
+					],
+					type: "polar",
+				},
+				polar: {
+					startingAngle: 1
+				}
+			}
+		},
 	},
 	API: {
 		AxisLabel: {
