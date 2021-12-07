@@ -37,5 +37,14 @@ describe("SHAPE POLAR", () => {
 
 			expect(left).to.be.closeTo(rect.x, 5);
 		});
+
+        it("Should render arcs", () => {
+			const polar = chart.$.main.select(`.${CLASS.chartPolarArcs}`);
+			const dataLen = chart.data().length;
+
+			const arcs = polar.selectAll(`.${CLASS.chartArc} g`);
+
+			expect(arcs.size()).to.be.equal(dataLen);
+		});
     });
 });
