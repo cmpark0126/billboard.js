@@ -4806,6 +4806,29 @@ d3.select(".chart_area")
 			}
 		}
 	},
+	PolarChartOptions: {
+		PolarLevel: {
+			options: {
+				data: {
+					columns: [
+						["data1", 30],
+						["data2", 120],
+						["data3", 75]
+					],
+					type: "polar",
+				},
+				polar: {
+					level: {
+						depth: 4,
+						show: false,
+						text: {
+							format: function(x) { return x + "%"; }
+						}
+					},
+				}
+			}
+		},
+	},
 	API: {
 		AxisLabel: {
 			options: {
