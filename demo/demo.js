@@ -4901,23 +4901,23 @@ d3.select(".chart_area")
 				}
 			}
 		},
-		// PolarSize: {
-		// 	options: {
-		// 		data: {
-		// 			columns: [
-		// 				["data1", 60],
-		// 				["data2", 120],
-		// 				["data3", 75]
-		// 			],
-		// 			type: "polar",
-		// 		},
-		// 		polar: {
-		// 			size: {
-		// 				max: 150
-		// 			}
-		// 		}
-		// 	}
-		// },
+		PolarSize: {
+			options: {
+				data: {
+					columns: [
+						["data1", 60],
+						["data2", 120],
+						["data3", 75]
+					],
+					type: "polar",
+				},
+				polar: {
+					size: {
+						ratio: 0.7
+					}
+				}
+			}
+		},
 		Padding: {
 			options: {
 				data: {
