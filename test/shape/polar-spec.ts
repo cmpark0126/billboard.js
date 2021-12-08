@@ -38,13 +38,16 @@ describe("SHAPE POLAR", () => {
 			expect(left).to.be.closeTo(rect.x, 5);
 		});
 
-        it("Should render arcs", () => {
-			const polar = chart.$.main.select(`.${CLASS.chartPolarArcs}`);
+        it("Should render arcs and level", () => {
+			const polar = chart.$.main.select(`.${CLASS.chartPolars}`);
 			const dataLen = chart.data().length;
 
-			const arcs = polar.selectAll(`.${CLASS.chartArc} g`);
-
+			const arcs = polar.selectAll(`.${CLASS.chartPolarArcs} .${CLASS.chartArc}`);
 			expect(arcs.size()).to.be.equal(dataLen);
+
+			const levels = polar.selectAll(`.${CLASS.levels} .${CLASS.level}`);
+			// default level depth value
+			expect(levels.size()).to.be.equal(3);
 		});
     });
 });
