@@ -28,7 +28,7 @@ export default {
 			.attr("class", CLASS.chartPolarArcs);
 
 		// Let every data is less or equal to dataMax and each level has integer value
-		current.dataMax = config.polar_size_max || ceilDataMax;
+		current.dataMax = config.polar_level_max || ceilDataMax;
 		// Let each value be 1, thus every arc has same central angle
 		// To match central angle with specific data, change "1" to specific function.
 		$$.polarPie = d3Pie()

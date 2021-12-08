@@ -4892,6 +4892,7 @@ d3.select(".chart_area")
 				polar: {
 					level: {
 						depth: 4,
+						max: 150,
 						show: false,
 						text: {
 							format: function(x) { return x + "%"; }
@@ -4900,23 +4901,23 @@ d3.select(".chart_area")
 				}
 			}
 		},
-		PolarSize: {
-			options: {
-				data: {
-					columns: [
-						["data1", 60],
-						["data2", 120],
-						["data3", 75]
-					],
-					type: "polar",
-				},
-				polar: {
-					size: {
-						max: 150
-					}
-				}
-			}
-		},
+		// PolarSize: {
+		// 	options: {
+		// 		data: {
+		// 			columns: [
+		// 				["data1", 60],
+		// 				["data2", 120],
+		// 				["data3", 75]
+		// 			],
+		// 			type: "polar",
+		// 		},
+		// 		polar: {
+		// 			size: {
+		// 				max: 150
+		// 			}
+		// 		}
+		// 	}
+		// },
 		Padding: {
 			options: {
 				data: {
