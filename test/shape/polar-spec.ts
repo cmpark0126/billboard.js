@@ -38,7 +38,7 @@ describe("SHAPE POLAR", () => {
 			expect(left).to.be.closeTo(rect.x, 5);
 		});
 
-        it("Should render arcs and level", () => {
+        it("should render arc and level", () => {
 			const polar = chart.$.main.select(`.${CLASS.chartPolars}`);
 			const dataLen = chart.data().length;
 
@@ -48,6 +48,13 @@ describe("SHAPE POLAR", () => {
 			const levels = polar.selectAll(`.${CLASS.levels} .${CLASS.level}`);
 			// default level depth value
 			expect(levels.size()).to.be.equal(3);
+		});
+
+		it("set level options", () => {
+			args.polar.level = {
+				depth: 8,
+				show: false,
+			};
 		});
     });
 });
