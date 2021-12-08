@@ -70,5 +70,9 @@ describe("SHAPE POLAR", () => {
 				expect(this.style.visibility).to.be.equal("hidden");
 			});
 		});
+
+		it("set options: hidden elements to show", () => {
+			args.polar.level.show = true;
+		});
     });
 });
