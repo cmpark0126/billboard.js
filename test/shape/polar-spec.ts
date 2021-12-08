@@ -74,5 +74,22 @@ describe("SHAPE POLAR", () => {
 		it("set options: hidden elements to show", () => {
 			args.polar.level.show = true;
 		});
+
+		it("check for resize", () => {
+			const polars = chart.$.main.select(`.${CLASS.chartPolars}`);
+			const level = polars.select(`.${CLASS.levels}`);
+
+			const old = [level].map(v => util.getBBox(v));
+
+			// when
+			chart.resize({width: 200, height: 200});
+
+			[level].forEach((v, i) => {
+				const resized = util.getBBox(v);
+
+				expect(old[i].width).to.be.above(resized.width);
+				expect(old[i].height).to.be.above(resized.height);
+			});
+		});
     });
 });
