@@ -56,5 +56,19 @@ describe("SHAPE POLAR", () => {
 				show: false,
 			};
 		});
+
+		it("check for level options", () => {
+			const polar = chart.$.main.select(`.${CLASS.chartPolars}`);
+			const levels = polar.select(`.${CLASS.levels}`);
+			const level = levels.selectAll("circle");
+
+			// check for level element depth size
+			expect(args.polar.level.depth).to.be.equal(level.size());
+
+			// level should be hidden
+			level.each(function() {
+				expect(this.style.visibility).to.be.equal("hidden");
+			});
+		});
     });
 });
