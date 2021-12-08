@@ -50,11 +50,11 @@ export default {
 		const $$ = this;
 		const {config, state: {current}} = $$;
 		const [width, height] = $$.getPolarSize();
-		const radius = Math.min(width, height);
+		const radius = config.polar_size_ratio * Math.min(width, height);
 		const dataMax = current.dataMax;
 
 		// TODO: remove magic number
-		const innerRadius = config.polar_padding * 0.75;
+		const innerRadius = config.polar_size_ratio * config.polar_padding * 0.75;
 
 		return d3Arc()
 			.innerRadius((d: any) => innerRadius * d.data.values.reduce((a, b) => a + b.value, 0) / dataMax)
@@ -123,7 +123,7 @@ export default {
 		const polarLevels = polar.levels;
 		const levelData = getRange(0, depth);
 
-		const radius = Math.min(width, height);
+		const radius = config.polar_size_ratio * Math.min(width, height);
 		const levelRatio = levelData.map(l => radius * ((l + 1) / depth));
 		const levelTextFormat = (config.polar_level_text_format || function() {}).bind($$.api);
 
@@ -151,7 +151,8 @@ export default {
 				.text(d => levelTextFormat(state.current.dataMax / levelData.length * (d + 1)));
 		}
 
-		levelEnter.merge(level);
+		levelEnter
+			.merge(level);
 	},
 
 	bindPolarEvent(polar): void {

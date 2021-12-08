@@ -20,6 +20,7 @@ export default {
 	 * @property {number} [polar.padAngle=0] Set padding between polar arcs.
 	 * @property {number} [polar.padding=0] Sets the gap between polar arcs.
 	 * @property {number} [polar.startingAngle=0] Set starting angle where data draws.
+	 * @property {number} [polar.size.ratio=0.87] Set size ratio.
 	 * @see [Demo](https://naver.github.io/billboard.js/demo/#Chart.PolarChart)
 	 * @see [Demo: polar level](https://naver.github.io/billboard.js/demo/#PolarChartOptions.PolarLevel)
 	 * @see [Demo: polar size](https://naver.github.io/billboard.js/demo/#PolarChartOptions.PolarSize)
@@ -36,7 +37,7 @@ export default {
 	 *          }
 	 *      },
 	 *      size: {
-	 *          max: 200
+	 *          ratio: 0.7
 	 *      },
 	 *      padAngle: 0.1,
 	 *      padding: 0,
@@ -44,10 +45,11 @@ export default {
 	 *  }
 	 */
 	polar_level_depth: 3,
+	polar_level_max: <number|undefined> undefined,
 	polar_level_show: true,
 	polar_level_text_format: (x: number) => (x % 1 === 0 ? x : x.toFixed(2)),
 	polar_level_text_show: true,
-	polar_level_max: <number|undefined> undefined,
+	polar_size_ratio: 0.87,
 	polar_padAngle: 0,
 	polar_padding: 0,
 	polar_startingAngle: 0
