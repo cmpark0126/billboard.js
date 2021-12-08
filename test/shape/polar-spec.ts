@@ -71,6 +71,23 @@ describe("SHAPE POLAR", () => {
 			});
 		});
 
+		it("check for size options", () => {
+			const polars = chart.$.main.select(`.${CLASS.chartPolars}`);
+			const level = polars.select(`.${CLASS.levels}`);
+
+			const old = [polars, level].map(v => util.getBBox(v));
+
+			// when
+			chart.config("polar.size.ratio", 0.7, true);
+
+			[polars, level].forEach((v, i) => {
+				const resized = util.getBBox(v);
+
+				expect(old[i].width).to.be.above(resized.width);
+				expect(old[i].height).to.be.above(resized.height);
+			});
+		});
+
 		it("check for resize", () => {
 			const polars = chart.$.main.select(`.${CLASS.chartPolars}`);
 			const level = polars.select(`.${CLASS.levels}`);
