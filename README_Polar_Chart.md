@@ -10,12 +10,13 @@ https://github.com/naver/billboard.js/blob/master/README.md
 - Billboard.js 의 Download and Installation 를 참고하여 설치 진행
 
 ## Files
+
 - 기존 billboard.js에서 추가하거나 수정한 파일들
- - demo/
- - src/ChartInternal/shape/polar.ts
- - src/ChartInternal/internals/transform.ts
- - src/config/Options/shape/polar.ts
- - src/scss/billboard.scss
+   - demo/
+   - src/ChartInternal/shape/polar.ts
+   - src/ChartInternal/internals/transform.ts
+   - src/config/Options/shape/polar.ts
+   - src/scss/billboard.scss
 
 ## Basic usage example
 
